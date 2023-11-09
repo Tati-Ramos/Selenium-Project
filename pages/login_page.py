@@ -11,6 +11,7 @@ class LoginPage(BasePage):
         self.usarname_field = (By.ID, "user-name")
         self.password_field = (By.ID, "password")
         self.login_button = (By.ID, "login-button")
+        self.error_message_login = (By.XPATH, "//div[@class='error-message-container error']//h3[@data-test='error']")
 
     def fazer_login(self, usuario, senha):
         # self.driver.find_element(*self.usarname_field).send_keys(usuario)
@@ -19,3 +20,7 @@ class LoginPage(BasePage):
         self.write(self.usarname_field, usuario)
         self.write(self.password_field, senha)
         self.click(self.login_button)
+
+    def check_message_error_login(self):
+        self.check_elements_exists(self.error_message_login)
+
