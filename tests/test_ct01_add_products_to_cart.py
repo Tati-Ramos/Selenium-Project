@@ -18,13 +18,13 @@ class TestCT01:
     def test_ct01_add_products_to_cart(self):
         driver = conftest.driver
         #Login
-        username = driver.find_element(By.ID, "user-name")
-        username.send_keys("standard_user")
-        time.sleep(2)
-        password = driver.find_element(By.ID, "password").send_keys("secret_sauce")
-        time.sleep(2)
-        login_btn = driver.find_element(By.ID, "login-button").click()
-        time.sleep(2)
+        # username = driver.find_element(By.ID, "user-name")
+        # username.send_keys("standard_user")
+        # time.sleep(2)
+        # password = driver.find_element(By.ID, "password").send_keys("secret_sauce")
+        # time.sleep(2)
+        # login_btn = driver.find_element(By.ID, "login-button").click()
+        # time.sleep(2)
 
         #Add Product to cart: backpack1
         click_on_the_product1 = driver.find_element(By.XPATH, "//*[@class='inventory_item_name ' and text()='Sauce Labs Backpack']").click()

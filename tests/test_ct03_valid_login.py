@@ -1,9 +1,9 @@
 import time
 
 import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import conftest
+from pages.login_page import LoginPage
 
 
 # driver = webdriver.Chrome()
@@ -16,17 +16,18 @@ import conftest
 class TestCT03:
     def test_ct03_valid_login(self):
         driver = conftest.driver
-        username = driver.find_element(By.ID, "user-name")
-        username.send_keys("standard_user")
-        time.sleep(2)
+        login_page = LoginPage()
+        login_page.fazer_login("standard_user", "secret_sauce")
 
-        password = driver.find_element(By.ID, "password").send_keys("secret_sauce")
-        time.sleep(2)
-
-        login_btn = driver.find_element(By.ID, "login-button").click()
-        time.sleep(2)
+        # username = driver.find_element(By.ID, "user-name")
+        # username.send_keys("standard_user")
+        # time.sleep(2)
+        #
+        # password = driver.find_element(By.ID, "password").send_keys("secret_sauce")
+        # time.sleep(2)
+        #
+        # login_btn = driver.find_element(By.ID, "login-button").click()
+        # time.sleep(2)
 
         assert driver.find_element(By.XPATH, "//span[@class='title']").is_displayed()
         time.sleep(1)
-
-#driver.quit()
