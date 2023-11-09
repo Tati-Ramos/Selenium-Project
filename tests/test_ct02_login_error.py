@@ -18,13 +18,18 @@ class TestCT02:
     def test_ct02_login_error(self):
         #driver = conftest.driver
 
+        expected_error_message = "Epic sadface: Username and password do not match any user in this service"
+
         # instância os objetos a serem usados no teste
         login_page = LoginPage()
         # faz o login
         login_page.fazer_login("standard_user", "1234")
 
         #verificar se o login não foi realizado e a mensagem de erro não apareceu
-        login_page.check_message_error_login()
+        login_page.check_message_error_login_exist()
+
+        #verifica o texto da mensagem de erro
+        login_page.check_message_text_login(expected_error_message)
 
 
 

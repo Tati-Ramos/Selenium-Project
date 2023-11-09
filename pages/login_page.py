@@ -21,6 +21,11 @@ class LoginPage(BasePage):
         self.write(self.password_field, senha)
         self.click(self.login_button)
 
-    def check_message_error_login(self):
+    def check_message_error_login_exist(self):
         self.check_elements_exists(self.error_message_login)
+
+    def check_message_text_login(self, expected_text):
+        text_found = self.get_text_element(self.error_message_login)
+        assert text_found == expected_text, f"O texto encontrado foi '{text_found}', mas era esperado o texto '{expected_text}'."
+
 
